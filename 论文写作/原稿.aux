@@ -1,0 +1,124 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}QuantumBench 基准与复现设置}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}数据集与标注结构}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces QuantumBench（769题）数据分布}}{5}{table.1}\protected@file@percent }
+\newlabel{tab:data_dist}{{1}{5}{QuantumBench（769题）数据分布}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}模型、推理环境与复现协议}{5}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}评测指标}{5}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}方法（Methods）}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}复现实验基线（Baseline Reproduction Protocol）}{6}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}创新点1：选择性符号增强的混合推理（Selective Symbolic-LLM Hybrid Reasoning）}{6}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}选择性门控：何时启用 SymPy}{7}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}两阶段混合推理与无偏回退：语言求解优先，符号路径兜底}{7}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}创新点2：开放式任务构建与双重评测框架（Open-ended + Dual Evaluation）}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}任务集构建：5 类开放式题型，共 165 题}{8}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}评分器与融合：AutoEvaluator、LLMJudge 与最终得分}{8}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}创新点3：研究生层次 QuantumBench-Grad 构建与评测（Graduate-level Benchmark）}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}数据规模、来源与标注文件}{9}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}研究生评测协议：准确率 + 推理阶段覆盖度}{10}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}实验与结果}{10}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}实验设置}{10}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}基线复现结果}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 基线按题型准确率（QuantumBench-MCQ）}}{11}{table.2}\protected@file@percent }
+\newlabel{tab:baseline_results}{{2}{11}{基线按题型准确率（QuantumBench-MCQ）}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}创新点1：Symbolic-LLM Hybrid 的 MCQ 结果}{11}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Baseline 与 Hybrid v1--v4 性能对比}}{11}{figure.1}\protected@file@percent }
+\newlabel{fig:hybrid_comparison}{{1}{11}{Baseline 与 Hybrid v1--v4 性能对比}{figure.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Baseline 与 Hybrid v1–v4 总体准确率（769题）}}{12}{table.3}\protected@file@percent }
+\newlabel{tab:hybrid_results}{{3}{12}{Baseline 与 Hybrid v1–v4 总体准确率（769题）}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 准确率误差条分析}}{12}{figure.2}\protected@file@percent }
+\newlabel{fig:accuracy_errorbars}{{2}{12}{准确率误差条分析}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 按题型准确率（Baseline vs v1–v4）}}{13}{table.4}\protected@file@percent }
+\newlabel{tab:type_comparison}{{4}{13}{按题型准确率（Baseline vs v1–v4）}{table.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 按题型分类的性能对比}}{13}{figure.3}\protected@file@percent }
+\newlabel{fig:type_comparison}{{3}{13}{按题型分类的性能对比}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 不同方法在各题型上的表现热力图}}{13}{figure.4}\protected@file@percent }
+\newlabel{fig:heatmap_fixed}{{4}{13}{不同方法在各题型上的表现热力图}{figure.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 子领域准确率（Baseline vs v4；9个规范子领域，767题）}}{14}{table.5}\protected@file@percent }
+\newlabel{tab:subdomain_comparison}{{5}{14}{子领域准确率（Baseline vs v4；9个规范子领域，767题）}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 各量子子领域准确率差异分析}}{14}{figure.5}\protected@file@percent }
+\newlabel{fig:subdomain_comparison}{{5}{14}{各量子子领域准确率差异分析}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 子领域样本量与增益的气泡图分析}}{15}{figure.6}\protected@file@percent }
+\newlabel{fig:bubble_analysis}{{6}{15}{子领域样本量与增益的气泡图分析}{figure.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces v4 路由策略分布与准确率（769题）}}{15}{table.6}\protected@file@percent }
+\newlabel{tab:routing_strategy}{{6}{15}{v4 路由策略分布与准确率（769题）}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces v4 版本的路由策略选择分布}}{16}{figure.7}\protected@file@percent }
+\newlabel{fig:strategy}{{7}{16}{v4 版本的路由策略选择分布}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 准确率与推理成本的帕累托分析}}{16}{figure.8}\protected@file@percent }
+\newlabel{fig:pareto_analysis}{{8}{16}{准确率与推理成本的帕累托分析}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}创新点2：开放式推理任务的实验结果}{16}{subsection.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Open-ended（free\_derivation）评估汇总}}{17}{table.7}\protected@file@percent }
+\newlabel{tab:open_ended_summary}{{7}{17}{Open-ended（free\_derivation）评估汇总}{table.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 开放式任务得分分布}}{17}{figure.9}\protected@file@percent }
+\newlabel{fig:open_ended_scores}{{9}{17}{开放式任务得分分布}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Auto 与 Judge 评分的小提琴图分布}}{18}{figure.10}\protected@file@percent }
+\newlabel{fig:violin_scores}{{10}{18}{Auto 与 Judge 评分的小提琴图分布}{figure.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces 30题扩展实验：按领域 Final 得分}}{18}{table.8}\protected@file@percent }
+\newlabel{tab:domain_scores}{{8}{18}{30题扩展实验：按领域 Final 得分}{table.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces 按领域划分的开放式任务 Final 得分}}{19}{figure.11}\protected@file@percent }
+\newlabel{fig:open_by_domain}{{11}{19}{按领域划分的开放式任务 Final 得分}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces 得分累积分布函数（CDF）曲线}}{19}{figure.12}\protected@file@percent }
+\newlabel{fig:score_cdf}{{12}{19}{得分累积分布函数（CDF）曲线}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}创新点3：QuantumBench-Grad（研究生基准）实验结果}{19}{subsection.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces QuantumBench-Grad 总体准确率表现}}{20}{figure.13}\protected@file@percent }
+\newlabel{fig:grad_overall}{{13}{20}{QuantumBench-Grad 总体准确率表现}{figure.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces QuantumBench-Grad 按难度分层准确率}}{20}{table.9}\protected@file@percent }
+\newlabel{tab:grad_difficulty}{{9}{20}{QuantumBench-Grad 按难度分层准确率}{table.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces 按难度等级划分的 Grad 准确率}}{20}{figure.14}\protected@file@percent }
+\newlabel{fig:grad_by_diff}{{14}{20}{按难度等级划分的 Grad 准确率}{figure.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces QuantumBench-Grad 按领域准确率（71题）}}{21}{table.10}\protected@file@percent }
+\newlabel{tab:grad_domain}{{10}{21}{QuantumBench-Grad 按领域准确率（71题）}{table.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces 各高阶子领域能力的雷达图}}{22}{figure.15}\protected@file@percent }
+\newlabel{fig:grad_radar}{{15}{22}{各高阶子领域能力的雷达图}{figure.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}讨论}{22}{section.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces 得分累积分布函数（CDF）曲线}}{23}{figure.16}\protected@file@percent }
+\newlabel{fig:cdf_discussion}{{16}{23}{得分累积分布函数（CDF）曲线}{figure.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}局限性与可复现性说明}{24}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}结论}{24}{section.8}\protected@file@percent }
+\bibcite{achiam2023}{1}
+\bibcite{brown2020}{2}
+\bibcite{chen2022}{3}
+\bibcite{cobbe2021}{4}
+\bibcite{dubey2024}{5}
+\bibcite{dupuis2024}{6}
+\bibcite{gao2022}{7}
+\bibcite{gemini2023}{8}
+\bibcite{gou2024}{9}
+\bibcite{gu2024}{10}
+\bibcite{hendrycks2021}{11}
+\bibcite{hendrycks2021b}{12}
+\bibcite{ji2023}{13}
+\bibcite{kashani2024}{14}
+\bibcite{kojima2022}{15}
+\bibcite{li2023}{16}
+\bibcite{liu2023}{17}
+\bibcite{manakul2023}{18}
+\bibcite{mcnemar1947}{19}
+\bibcite{meurer2017}{20}
+\bibcite{mikuriya2025}{21}
+\bibcite{minami2025}{22}
+\bibcite{pan2024}{23}
+\bibcite{patil2023}{24}
+\bibcite{phan2025}{25}
+\bibcite{qin2023}{26}
+\bibcite{qwenteam2024}{27}
+\bibcite{rein2023}{28}
+\bibcite{schick2023}{29}
+\bibcite{srivastava2022}{30}
+\bibcite{stephan2024}{31}
+\bibcite{suzgun2022}{32}
+\bibcite{touvron2023}{33}
+\bibcite{wang2023}{34}
+\bibcite{wang2022}{35}
+\bibcite{wang2024}{36}
+\bibcite{wei2022}{37}
+\bibcite{yao2022}{38}
+\bibcite{ye2024}{39}
+\bibcite{zheng2023}{40}
+\bibcite{zhu2025}{41}
+\gdef \@abspage@last{28}

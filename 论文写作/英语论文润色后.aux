@@ -1,0 +1,104 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}QuantumBench Benchmark and Reproduction Settings}{5}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset and Annotation Structure}{5}{subsection.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces QuantumBench (769 problems) Data Distribution}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:data_distribution}{{1}{6}{QuantumBench (769 problems) Data Distribution}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Models, Inference Environments, and Reproducibility Protocol}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Evaluation Metrics}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methods}{7}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Baseline Reproduction Protocol}{7}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Innovation Point 1: Selective Symbolic-LLM Hybrid Reasoning}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Selective Gating: When to Enable SymPy}{8}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Two-Stage Hybrid Reasoning with Unbiased Fallback}{8}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Innovation Point 2: Open-ended Task Construction and Dual Evaluation Framework}{9}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Task Set Construction: 5 Open-Ended Question Types, 165 Questions Total}{9}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Scorers and Fusion: AutoEvaluator, LLMJudge, and Final Scores}{10}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Innovation Point 3: Development and Evaluation of QuantumBench-Grad (Graduate-level Benchmark)}{10}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Data Scale, Sources, and Annotation Files}{11}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Graduate Evaluation Protocol: Accuracy + Reasoning Stage Coverage}{11}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments and Results}{11}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Experimental Setup}{11}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Baseline Reproduction Results}{12}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Baseline Accuracy by Question Type (QuantumBench-MCQ)}}{12}{table.2}\protected@file@percent }
+\newlabel{tab:baseline_type}{{2}{12}{Baseline Accuracy by Question Type (QuantumBench-MCQ)}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Innovation Point 1: Symbolic-LLM Hybrid's MCQ Results}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Overall Accuracy of Baseline and Hybrid v1--v4 (769 Questions)}}{13}{table.3}\protected@file@percent }
+\newlabel{tab:hybrid_results}{{3}{13}{Overall Accuracy of Baseline and Hybrid v1--v4 (769 Questions)}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall Performance Comparison and Statistical Significance Analysis of Baseline vs.\ Hybrid v1--v4}}{13}{figure.1}\protected@file@percent }
+\newlabel{fig:overall_significance}{{1}{13}{Overall Performance Comparison and Statistical Significance Analysis of Baseline vs.\ Hybrid v1--v4}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance Comparison by Question Type and Analysis of Gating Strategy Effectiveness}}{14}{figure.2}\protected@file@percent }
+\newlabel{fig:typewise_gating}{{2}{14}{Performance Comparison by Question Type and Analysis of Gating Strategy Effectiveness}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Accuracy by Question Type (Baseline vs v1--v4)}}{14}{table.4}\protected@file@percent }
+\newlabel{tab:type_comparison}{{4}{14}{Accuracy by Question Type (Baseline vs v1--v4)}{table.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Analysis of Subdomain Gain Concentration and Symbol Enhancement Effect}}{15}{figure.3}\protected@file@percent }
+\newlabel{fig:subdomain_analysis}{{3}{15}{Analysis of Subdomain Gain Concentration and Symbol Enhancement Effect}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Subdomain Accuracy (Baseline vs v4; 9 Specification Subdomains, 767 Questions)}}{15}{table.5}\protected@file@percent }
+\newlabel{tab:subdomain_comparison}{{5}{15}{Subdomain Accuracy (Baseline vs v4; 9 Specification Subdomains, 767 Questions)}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces v4 Routing Policy Distribution and Accuracy (769 Questions)}}{16}{table.6}\protected@file@percent }
+\newlabel{tab:routing_strategy}{{6}{16}{v4 Routing Policy Distribution and Accuracy (769 Questions)}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Distribution of v4 Routing Policies and Accuracy Rate}}{16}{figure.4}\protected@file@percent }
+\newlabel{fig:efficiency_tradeoff}{{4}{16}{Distribution of v4 Routing Policies and Accuracy Rate}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Innovation Point 2: Experimental Results on Open-Ended Reasoning Tasks}{16}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Open Evaluation Framework and Summary of Scoring Results}}{17}{figure.5}\protected@file@percent }
+\newlabel{fig:openended_framework}{{5}{17}{Open Evaluation Framework and Summary of Scoring Results}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Summary of Open-ended (Free\_Derivation) Evaluation}}{17}{table.7}\protected@file@percent }
+\newlabel{tab:open_ended_summary}{{7}{17}{Summary of Open-ended (Free\_Derivation) Evaluation}{table.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces 30-Question Extended Experiment: FINAL Score by Domain}}{18}{table.8}\protected@file@percent }
+\newlabel{tab:domain_scores}{{8}{18}{30-Question Extended Experiment: FINAL Score by Domain}{table.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Innovation Point 3: Experimental Results of QuantumBench-Grad (Graduate Benchmark)}{18}{subsection.5.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces QUANTUMBENCH-GRAD Accuracy by Difficulty Tier}}{18}{table.9}\protected@file@percent }
+\newlabel{tab:grad_difficulty}{{9}{18}{QUANTUMBENCH-GRAD Accuracy by Difficulty Tier}{table.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces QuantumBench-Grad Graduate Benchmark Main Results: Overall Performance, Difficulty Stratification, and Domain Analysis}}{19}{figure.6}\protected@file@percent }
+\newlabel{fig:graduate_benchmark}{{6}{19}{QuantumBench-Grad Graduate Benchmark Main Results: Overall Performance, Difficulty Stratification, and Domain Analysis}{figure.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces QUANTUMBENCH-GRAD Domain-Specific Accuracy (71 Questions)}}{19}{table.10}\protected@file@percent }
+\newlabel{tab:grad_domain}{{10}{19}{QUANTUMBENCH-GRAD Domain-Specific Accuracy (71 Questions)}{table.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{20}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and Reproducibility Statement}{21}{section.7}\protected@file@percent }
+\bibcite{achiam2023}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{22}{section.8}\protected@file@percent }
+\bibcite{brown2020}{2}
+\bibcite{chen2022}{3}
+\bibcite{cobbe2021}{4}
+\bibcite{Grattafiori2024}{5}
+\bibcite{dupuis2024}{6}
+\bibcite{gao2022}{7}
+\bibcite{gemini2023}{8}
+\bibcite{gou2024}{9}
+\bibcite{gu2024}{10}
+\bibcite{hendrycks2021}{11}
+\bibcite{hendrycks2021b}{12}
+\bibcite{ji2023}{13}
+\bibcite{kashani2024}{14}
+\bibcite{kojima2022}{15}
+\bibcite{li2023}{16}
+\bibcite{liu2023}{17}
+\bibcite{manakul2023}{18}
+\bibcite{mcnemar1947}{19}
+\bibcite{meurer2017}{20}
+\bibcite{mikuriya2025}{21}
+\bibcite{minami2025}{22}
+\bibcite{pan2024}{23}
+\bibcite{patil2023}{24}
+\bibcite{phan2025}{25}
+\bibcite{qin2023}{26}
+\bibcite{qwenteam2024}{27}
+\bibcite{rein2023}{28}
+\bibcite{schick2023}{29}
+\bibcite{srivastava2022}{30}
+\bibcite{stephan2024}{31}
+\bibcite{suzgun2022}{32}
+\bibcite{touvron2023}{33}
+\bibcite{wang2023}{34}
+\bibcite{wang2022}{35}
+\bibcite{wang2024}{36}
+\bibcite{wei2022}{37}
+\bibcite{yao2022}{38}
+\bibcite{ye2024}{39}
+\bibcite{zheng2023}{40}
+\bibcite{zhu2025}{41}
+\gdef \@abspage@last{25}
