@@ -1,223 +1,364 @@
-# QuantumBench Reproduction & Our Improvements
+# ExtendedQuantumBench: Reproducing and Extending QuantumBench for Quantum Reasoning Evaluation
 
-[![Paper Status](https://img.shields.io/badge/Paper-Unpublished-red)](#-intellectual-property--usage-policy)
-[![Repo Status](https://img.shields.io/badge/Code-Research%20Project-blue)](#)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-black)](#-intellectual-property--usage-policy)
+[![Paper Status](https://img.shields.io/badge/Paper-Submitted%20to%20QIP-orange)](#paper)
+[![Repo Status](https://img.shields.io/badge/Code-Research%20Artifact-blue)](#)
+[![License](https://img.shields.io/badge/License-MIT-green)](#license)
 
-> This repository contains the full reproduction and our extended research work built upon **QuantumBench**, including experiment code, evaluation scripts, outputs/logs, and the full LaTeX manuscript.
+> **ExtendedQuantumBench** is a research artifact accompanying our QIP submission  
+> **“Extending QuantumBench: A Selective Symbolic Enhancement and Multi-Perspective Evaluation Framework for Solving Quantum Problems”**.
 
----
+This repository provides:
 
-## 📌 Table of Contents
-
-* [Overview](#-overview)
-* [Repository Structure](#-repository-structure)
-* [Completed Work](#-completed-work)
-* [Getting Started](#-getting-started)
-* [Paper](#-paper)
-* [FAQ](#-faq)
-* [Citation](#-citation)
-* [Intellectual Property & Usage Policy](#-intellectual-property--usage-policy)
-* [Contact](#-contact)
+- A **strict reproduction** of the original **QuantumBench** MCQ benchmark (769 questions)
+- A **selective symbolic augmentation** framework (Hybrid v1–v4, with deterministic gating)
+- An **open-ended quantum reasoning task suite** (165 tasks) + a **dual-signal evaluator**
+- A **graduate-level extrapolation benchmark** (**QuantumBench-Grad**, 71 tasks)
+- Experiment scripts, cached outputs, and analysis utilities
 
 ---
 
-## 🔍 Overview
+## Table of Contents
 
-This project focuses on **reproducing** and **improving** the QuantumBench-related benchmark and experimental pipeline.
-
-The repository includes:
-
-* Full reproduction of baseline methods and reported results
-* Our own improvements / extensions on the original framework
-* Multiple rounds of experiments (comparison & ablation)
-* Full manuscript source files (LaTeX), figures, and writing materials
+- [1. Overview](#1-overview)
+- [2. Repository Structure](#2-repository-structure)
+- [3. Environment & Installation](#3-environment--installation)
+- [4. Quick Start (Reproduce Key Results)](#4-quick-start-reproduce-key-results)
+- [5. Detailed Reproduction](#5-detailed-reproduction)
+  - [5.1 Baseline MCQ](#51-baseline-mcq)
+  - [5.2 Hybrid v1–v4 (Selective Symbolic Augmentation)](#52-hybrid-v1v4-selective-symbolic-augmentation)
+  - [5.3 Open-Ended Task Suite + Dual Evaluation](#53-open-ended-task-suite--dual-evaluation)
+  - [5.4 QuantumBench-Grad](#54-quantumbench-grad)
+- [6. Outputs & Result Files](#6-outputs--result-files)
+- [7. Notes on Reproducibility](#7-notes-on-reproducibility)
+- [8. Paper](#8-paper)
+- [9. Citation](#9-citation)
+- [10. License](#10-license)
+- [11. Contact](#11-contact)
 
 ---
 
-## 📁 Repository Structure
+## 1. Overview
 
-> Note: Some directories contain a large number of files. GitHub Web UI may fail to fully render them, but the contents will be complete after cloning.
+### What is QuantumBench?
+
+QuantumBench (Minami et al., 2025) is a multiple-choice benchmark for quantum problem solving.
+It contains **769** problems across **9** quantum-related subfields, and each question is annotated with a question type:
+
+- Conceptual Understanding
+- Algebraic Calculation
+- Numerical Calculation
+
+### What does this repository add?
+
+This repository **does not propose a new quantum solver**.
+Instead, we **systematically extend the evaluation paradigm** with three directions:
+
+- **(C1) Selective symbolic augmentation** (SymPy-assisted, gated, reproducible)
+- **(C2) Open-ended quantum reasoning evaluation** (165 tasks, dual scoring)
+- **(C3) Graduate-level extrapolation benchmark** (71 tasks, structured reasoning)
+
+---
+
+## 2. Repository Structure
+
+> **Important note:** This repository is organized as a research artifact.  
+> The core implementation lives inside `QuantumBench/`.
 
 ```
 .
-├── QuantumBench/                  # Core reproduction + our improvements
-├── 论文写作文件夹/                 # LaTeX manuscript and writing materials
-│   └── 英语论文润色后.tex           # Main English paper (polished version)
-├── outputs/                       # Logs, predictions, evaluation results (may be large)
-└── ...
+├── QuantumBench/                         # Main project root
+│   ├── code/                             # All runnable scripts (100_*.py, 200_*.py, ...)
+│   ├── data/
+│   │   ├── open_ended_tasks.json          # 165 open-ended tasks
+│   │   └── grad_benchmark/
+│   │       ├── quantumbench_grad.csv      # 71 grad benchmark questions
+│   │       └── category_grad.csv          # grad metadata annotations
+│   ├── docs/                             # experiment logs + summaries (Chinese)
+│   ├── outputs/                          # cached runs, predictions, logs (optional)
+│   ├── quantumbench/                     # original QuantumBench data files
+│   ├── pyproject.toml                    # dependencies (uv / pip)
+│   └── ...
+└── README.md
+├── Reproducibility.md
+└── ARTIFACT.md
 ```
 
-### Key Paths
+### Key entry points (scripts)
 
-* **Main code**: `QuantumBench/`
-* **Main paper (English, polished)**:
-  `论文写作文件夹/英语论文润色后.tex`
+All scripts are under:
 
----
+- `QuantumBench/code/`
 
-## ✅ Completed Work
-
-This repository currently includes the following completed work:
-
-### 1) Baseline Reproduction
-
-* Environment setup and baseline pipeline reproduction
-* Reproduced core evaluation results and metrics
-
-### 2) Our Improvements / Extensions
-
-* Implemented novel modifications on the original framework
-* Added additional experimental settings and comparisons
-
-### 3) Evaluation & Experiment Logging
-
-* Multi-round experimental outputs saved for traceability
-* Evaluation scripts and result summaries
-
-### 4) Paper Writing
-
-* Full LaTeX project included
-* English polished version ready in the paper folder
+| Script | Purpose |
+|---|---|
+| `100_run_benchmark.py` | Baseline MCQ reproduction |
+| `200_symbolic_hybrid_benchmark.py` | Hybrid framework (wrapper) |
+| `230_symbolic_hybrid_v4.py` | Selective gating hybrid (main method) |
+| `300_open_ended_framework.py` | Open-ended evaluation framework |
+| `410_grad_benchmark_evaluator.py` | QuantumBench-Grad evaluation |
+| `analyze_*` | Result aggregation & plotting |
 
 ---
 
-## 🚀 Getting Started
+## 3. Environment & Installation
 
-> This repository is research-oriented and may require manual setup depending on your system.
+### 3.1 Python version
 
-### 1) Clone the repository
+The experiments were conducted with:
+
+- Python **3.12**
+- Windows 11
+- RTX 4060 8GB
+- Local inference via **Ollama**
+
+(Other OS should work, but was not tested in the paper.)
+
+### 3.2 Install dependencies
+
+This project uses a minimal dependency set declared in:
+
+- `QuantumBench/pyproject.toml`
+
+#### Option A: Install via pip
 
 ```bash
-git clone <YOUR_REPO_URL>
-cd <YOUR_REPO_NAME>
+cd QuantumBench
+pip install -U pip
+pip install .
 ```
 
-### 2) Recommended environment setup
-
-We recommend using `conda`:
+#### Option B: Install via uv (recommended)
 
 ```bash
-conda create -n quantumbench python=3.10 -y
-conda activate quantumbench
+cd QuantumBench
+pip install uv
+uv sync
 ```
 
-Then install dependencies (if requirements exist in the project):
+### 3.3 Model requirement (Ollama)
+
+We used:
+
+- `qwen2.5:7b`
+
+Install and run:
 
 ```bash
-pip install -r requirements.txt
+ollama pull qwen2.5:7b
+ollama serve
 ```
 
-> If `requirements.txt` is not provided, please check scripts inside `QuantumBench/` for dependency hints.
+---
+
+## 4. Quick Start (Reproduce Key Results)
+
+> All commands below assume you are inside the `QuantumBench/` directory.
+
+```bash
+cd QuantumBench
+```
 
 ---
 
-## 📝 Paper
+### 4.1 Baseline MCQ (769 questions)
 
-The manuscript is included in this repository.
+```bash
+python code/100_run_benchmark.py
+```
 
-### Main English Version (Polished)
+Expected output:
 
-📌 `论文写作文件夹/英语论文润色后.tex`
-
----
-
-## ❓ FAQ
-
-### Q1: Why can’t GitHub Web UI open the full `QuantumBench/` directory?
-
-This is a known limitation of GitHub’s web interface when a directory contains too many files.
-
-✅ The repository contents will be complete after:
-
-* `git clone`
-* or `Download ZIP`
+- Overall accuracy around **38%** (depends slightly on decoding + environment)
 
 ---
 
-### Q2: Why is the repository large / slow to clone?
+### 4.2 Selective symbolic hybrid v4 (main method)
 
-Possible reasons include:
+```bash
+python code/230_symbolic_hybrid_v4.py
+```
 
-* Large number of experiment outputs/log files
-* Cached artifacts
-* Many small files in evaluation assets
+Expected:
 
----
-
-### Q3: I encounter dependency / CUDA / model download issues.
-
-Common causes:
-
-* mismatched `torch` / `cuda` versions
-* incompatible `transformers` versions
-* missing system dependencies
-* restricted access to HuggingFace models
-
-Suggested actions:
-
-* use a clean conda environment
-* align PyTorch with your CUDA version
-* check error logs and install missing packages accordingly
+- Slight overall gain vs baseline
+- Gains concentrated in Quantum Computation subfield
 
 ---
 
-### Q4: Can I reuse the code or paper for my own publication?
+### 4.3 Open-ended evaluation (165 tasks)
 
-🚫 **No. Not without explicit written permission from the author.**
+```bash
+python code/300_open_ended_framework.py
+```
 
-Please refer to the IP policy section below.
+Outputs:
 
----
-
-## 📚 Citation
-
-This paper is currently **unpublished**, therefore no official BibTeX entry is provided yet.
-
-If you need to cite or refer to this work, please contact the author for the most updated citation format.
+- AutoEvaluator score
+- LLM-as-a-Judge score
+- Weighted fusion score
 
 ---
 
-## 🔒 Intellectual Property & Usage Policy
+### 4.4 Graduate benchmark (71 questions)
 
-### ⚠️ IMPORTANT NOTICE (Unpublished Work)
+```bash
+python code/410_grad_benchmark_evaluator.py
+```
 
-This repository contains an **unpublished manuscript** and the full research pipeline.
+Outputs:
 
-**All intellectual property rights belong exclusively to the author.**
-The author is the **first author** of this work.
-
-### 🚫 Strictly Prohibited Without Permission
-
-Any of the following actions are strictly prohibited without explicit written authorization:
-
-* Copying or paraphrasing the manuscript for publication
-* Reusing the method, experiments, or writing for another paper submission
-* Plagiarism of any figures, tables, or textual descriptions
-* Redistribution of this repository or its partial contents
-* Commercial use of any part of this work
-
-Violations may result in formal legal actions.
+- Accuracy
+- Reasoning stage coverage statistics
 
 ---
 
-### 中文知识产权声明（强制）
+## 5. Detailed Reproduction
 
-本仓库包含尚未发表的论文全文、实验代码、创新方法、实验设计、图表与文字表述等内容。
+### 5.1 Baseline MCQ
 
-**上述所有内容的知识产权完全归作者本人所有，作者为该论文第一作者。**
+- Dataset: `quantumbench/quantumbench/quantumbench.csv`
+- Annotations: `quantumbench/quantumbench/category.csv`
 
-🚫 未经作者明确书面许可，严禁：
+The evaluation follows the original QuantumBench pipeline:
 
-* 复制、改写、翻译或抄袭论文内容并用于投稿/发表
-* 盗用创新点、实验设计、实验结果或方法描述
-* 使用本仓库代码成果用于论文投稿或商业用途
-* 将仓库内容进行二次传播或公开发布
-
-如发现侵权行为，将保留追究法律责任的权利。
+- 8-option MCQ
+- fixed option shuffle with `seed=0`
+- regex-based answer extraction
+- unbiased fallback for parsing failures
 
 ---
 
-## 📬 Contact
+### 5.2 Hybrid v1–v4 (Selective Symbolic Augmentation)
 
-For collaboration, authorization, or academic communication, please contact the author directly.
+The hybrid framework implements:
+
+- Two-stage solving: zero-shot → SymPy verification path
+- Deterministic gating based on:
+  - question type
+  - subdomain
+
+The main method in the paper is **Hybrid v4**:
+
+- `code/230_symbolic_hybrid_v4.py`
+
+---
+
+### 5.3 Open-Ended Task Suite + Dual Evaluation
+
+Open-ended tasks are stored in:
+
+- `data/open_ended_tasks.json`
+
+Task categories:
+
+- code-free derivation
+- concept explanation
+- analytical QA
+- error diagnosis
+- multi-step reasoning
+
+The evaluation uses:
+
+- AutoEvaluator (rule-based, interpretable)
+- LLMJudge (LLM-as-a-Judge rubric)
+- Weighted fusion:
+  - `Final = 0.4 * Auto + 0.6 * LLMJudge`
+
+---
+
+### 5.4 QuantumBench-Grad
+
+Graduate benchmark files:
+
+- `data/grad_benchmark/quantumbench_grad.csv`
+- `data/grad_benchmark/category_grad.csv`
+
+Protocol:
+
+- same 8-option MCQ interface
+- enforced A/B/C/D structured reasoning
+- metrics:
+  - accuracy
+  - reasoning stage coverage
+
+---
+
+## 6. Outputs & Result Files
+
+By default, scripts will write outputs to:
+
+- `outputs/`
+
+Example subfolders:
+
+- `outputs/run_ollama/`
+- `outputs/run_hybrid_v4_full/`
+- `outputs/open_ended_eval/`
+- `outputs/grad_eval/`
+
+> Note: outputs can be large.  
+> If you are preparing a lightweight clone, you may remove `outputs/` safely.
+
+---
+
+## 7. Notes on Reproducibility
+
+### Determinism
+
+We enforce:
+
+- option shuffle `seed=0`
+- fallback randomness tied to question id
+- deterministic gating in Hybrid v4
+
+### Compute cost
+
+Hybrid v4 is slower than baseline due to:
+
+- tool invocation
+- SymPy execution
+- additional parsing / matching steps
+
+---
+
+## 8. Paper
+
+**Title:**  
+Extending QuantumBench: A Selective Symbolic Enhancement and Multi-Perspective Evaluation Framework for Solving Quantum Problems
+
+**Status:** Submitted to QIP (under review)
+
+---
+
+## 9. Citation
+
+This work is currently under review.
+
+Please cite the repository URL for now:
+
+```bibtex
+@misc{luo2026extendedquantumbench,
+  title        = {ExtendedQuantumBench: Reproducing and Extending QuantumBench for Quantum Reasoning Evaluation},
+  author       = {Luo, Yanyao},
+  year         = {2026},
+  howpublished = {\url{https://github.com/mugiEinstein/ExtendedQuantumBench}},
+  note         = {QIP submission under review}
+}
+```
+
+---
+
+## 10. License
+
+This repository is released under the **MIT License**.
+
+See `LICENSE`.
+
+---
+
+## 11. Contact
+
+For academic communication, please contact:
+
+- **Yanyao Luo**  
+- Email: `U202341233@xs.ustb.edu.cn`
